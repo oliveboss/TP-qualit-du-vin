@@ -14,13 +14,13 @@ namespace TP_qualité_du_vin
         {
             switch (Quality)
             {
-                case 0: // c'est juste un exemple
+                case 3: // c'est juste un exemple
                     Console.WriteLine("La qualité du vin est d'une qualité moyenne ou basse.");
                     break;
-                case 1:
+                case 6:
                     Console.WriteLine("La qualité du vin est bonne.");
                     break;
-                case 2:
+                case 9:
                     Console.WriteLine("La qualité du vin est excellente.");
                     break;
                 default:
