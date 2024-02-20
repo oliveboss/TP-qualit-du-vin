@@ -9,7 +9,7 @@ namespace TP_qualité_du_vin
 {
     internal class Terrain
     {
-        private float longueur 
+        private float longueur;
         private float largeur;
 
         public float Surface(float longueur, float largeur)
