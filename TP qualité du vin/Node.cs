@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TP_qualité_du_vin
 {
-    internal  class Node
+    public  class Node
     {
         public string Attribute { get; set; }
         public Dictionary<string, Node> Children { get; set; }
