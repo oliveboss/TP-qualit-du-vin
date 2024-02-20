@@ -15,7 +15,7 @@ namespace TP_qualité_du_vin
             //test  de dataloader
             // Chemin d'accès au fichier CSV contenant les données d'apprentissage"C:\Users\amouz\OneDrive\Bureau\TP qualité du vin\train_reduced.csv"
 
-            string cheminFichier = @"C:\Users\Joel Kayemba\OneDrive\Documents\Données - Qualité du Vin(3)\train_reduced.csv";// @"C:\Users\amouz\OneDrive\Bureau\Donnes_D_Apprentissage.csv";
+            string cheminFichier = @"C:\Users\amouz\OneDrive\Bureau\Donnes_D_Apprentissage.csv";// @"C:\Users\Joel Kayemba\OneDrive\Documents\Données - Qualité du Vin(3)\train_reduced.csv"; 
 
             // Charger les données d'apprentissage à partir du fichier CSV
             List<Vin> donneesApprentissage = DataLoader.ChargerDonneesApprentissage(cheminFichier);
