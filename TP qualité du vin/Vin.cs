@@ -48,5 +48,25 @@ namespace TP_qualité_du_vin
         {
             Console.WriteLine("Alcool: " + Alcool + "\nSulfate:" + Sulfate + "\nAcide citrique: " + Acide_citrique + "\nAcidité volatile: " + Acidite_volatile );
         }
+
+        // Méthode pour obtenir la valeur d'un attribut par son nom
+        public object GetAttributeValue(string attributeName)
+        {
+            switch (attributeName)
+            {
+                case "Alcool":
+                    return Alcool;
+                case "Sulfate":
+                    return Sulfate;
+                case "Acide_citrique":
+                    return Acide_citrique;
+                case "Acidite_volatile":
+                    return Acidite_volatile;
+                case "Qualite":
+                    return Qualite;
+                default:
+                    throw new ArgumentException("Nom d'attribut invalide.");
+            }
+        }
     }
 }
