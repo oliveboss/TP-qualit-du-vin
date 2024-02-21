@@ -18,7 +18,7 @@ namespace TP_qualité_du_vin
 
             // Appelez le constructeur de Arbre_de_decision avec la liste d'attributs
             Arbre_de_decision arbre = new Arbre_de_decision(attributs);
-
+            
             // Chargez les données d'apprentissage
             string cheminFichierApprentissage = @"C:\Users\amouz\OneDrive\Bureau\Donnes_D_Apprentissage.csv";
             List<Vin> donneesApprentissage = DataLoader.ChargerDonneesApprentissage(cheminFichierApprentissage);
