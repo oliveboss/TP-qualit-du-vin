@@ -39,7 +39,7 @@ namespace TP_qualité_du_vin
 
             // Évaluer le modèle sur l'ensemble de test indépendant
             double precisionTest = Performance.EvaluerModele(arbre, donneesTest);
-
+            
             // Afficher la précision sur l'ensemble de test indépendant
             Console.WriteLine($"Précision sur l'ensemble de test indépendant: {precisionTest:P}");
         }
