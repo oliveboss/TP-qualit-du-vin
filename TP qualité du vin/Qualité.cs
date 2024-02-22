@@ -10,11 +10,16 @@ namespace TP_qualité_du_vin
     {
         private int Quality { get; set; }
 
+        public Qualité(int quality)
+        {
+            Quality = quality;
+        }
+
         public void Afficher()
         {
             switch (Quality)
             {
-                case 3: // c'est juste un exemple
+                case 3: 
                     Console.WriteLine("La qualité du vin est d'une qualité moyenne ou basse.");
                     break;
                 case 6:
