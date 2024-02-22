@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace TP_qualité_du_vin
 {
     internal class Performance
+        
     {
         public static double ValidationCroisee(List<Vin> donneesApprentissage, int folds)
         {
