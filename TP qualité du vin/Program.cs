@@ -18,16 +18,16 @@ namespace TP_qualité_du_vin
 
             // Appelez le constructeur de Arbre_de_decision avec la liste d'attributs
             Arbre_de_decision arbre = new Arbre_de_decision(attributs);
-            
+
             // Chargez les données d'apprentissage
-            string cheminFichierApprentissage = @"C:\Users\amouz\OneDrive\Bureau\Donnes_D_Apprentissage.csv";
+            string cheminFichierApprentissage = @"C:\Users\Joel Kayemba\OneDrive\Documents\Données - Qualité du Vin(3)\train_reduced.csv";// @"C:\Users\amouz\OneDrive\Bureau\Donnes_D_Apprentissage.csv";
             List<Vin> donneesApprentissage = DataLoader.ChargerDonneesApprentissage(cheminFichierApprentissage);
 
             // Construisez l'arbre de décision avec les données d'apprentissage
             arbre.ConstruireArbre(donneesApprentissage,attributs);
 
             // Chargez les données de test
-            string cheminFichierTest = @"C:\Users\amouz\OneDrive\Bureau\test_reduced.csv";
+            string cheminFichierTest = @"C:\Users\Joel Kayemba\OneDrive\Documents\Données - Qualité du Vin(3)\test_reduced.csv"; //@"C:\Users\amouz\OneDrive\Bureau\test_reduced.csv";
             List<Vin> donneesTest = DataLoader.ChargerDonneesApprentissage(cheminFichierTest);
 
             // Testez l'arbre de décision avec les données de test

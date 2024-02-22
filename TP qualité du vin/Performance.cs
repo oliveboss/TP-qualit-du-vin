@@ -19,7 +19,7 @@ namespace TP_qualité_du_vin
             }
             else
             {
-                return 1; //notre formule à la place de 1
+                return 1; //chercher comment retourner la prédiction de la qualité
             }
         }
     }

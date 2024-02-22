@@ -11,7 +11,8 @@ namespace TP_qualité_du_vin
         private Vin vin;
         public override void Afficher()
         {
-            Console.WriteLine("Nom: " + nom + "\nPrenom: " + prenom + "\nAge: " + age);
+            Console.WriteLine("Nom: " + Nom + "\nPrenom: " + Prenom + "\nAge: " + Age+ "\nEvalue le vin: ");
+            vin.Afficher();
 
         }
 

@@ -8,14 +8,22 @@ namespace TP_qualité_du_vin
 {
     internal class Vignoble
     {
-        private Propriétaire propriétaire;
-        private Terrain terrain;
+        private Propriétaire Propriétaire { get; set; }
+        private Terrain Terrain { get; set; }
+
+        public List<Vin> Vins { get; set; } = new List<Vin>();
+
+        public Vignoble(Propriétaire propriétaire, Terrain terrain)
+        {
+            Propriétaire = propriétaire;
+            Terrain = terrain;
+        }
 
         public void Afficher()
         {
-            if (terrain != null)
+            if (Terrain != null)
             {
-                Console.WriteLine("Afficher terrain");
+               Terrain.Afficher();
                 
             }
             else
@@ -24,9 +32,9 @@ namespace TP_qualité_du_vin
             }
 
             
-            if (propriétaire != null)
+            if (Propriétaire != null)
             {
-                Console.WriteLine("Afficher propriétaire");
+                Propriétaire.Afficher();
             }
             else
             {

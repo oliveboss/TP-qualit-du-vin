@@ -8,10 +8,12 @@ namespace TP_qualité_du_vin
 {
     internal abstract class Client
     {
-        protected string nom;
-        protected string prenom;
-        protected int age;
+        protected string Nom {  get; set; }
+        protected string Prenom {  get; set; }
+        protected int Age { get; set; }
 
         public abstract void Afficher();
+
+        
     }
 }
