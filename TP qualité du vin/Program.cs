@@ -20,7 +20,7 @@ namespace TP_qualité_du_vin
 
             // Nombre de folds pour la validation croisée
             int nombreFolds = 5;
-
+            
             // Effectuer la validation croisée et obtenir la précision moyenne
             double precisionMoyenne = Performance.ValidationCroisee(donneesApprentissage, nombreFolds);
 
