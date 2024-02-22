@@ -74,8 +74,8 @@
     <Compile Include="Arbre_de_decision.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="DataLoader.cs" />
+    <Compile Include="Entrainement.cs" />
     <Compile Include="IDecisiontree.cs" />
-    <Compile Include="Node.cs" />
     <Compile Include="Noeud.cs" />
     <Compile Include="Oenologue.cs" />
     <Compile Include="Performance.cs" />

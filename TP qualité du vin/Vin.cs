@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TP_qualité_du_vin
 {
-    internal class Vin
+    public class Vin
     {
         private float alcool;
         private float sulfate;
@@ -41,13 +41,16 @@ namespace TP_qualité_du_vin
             get { return qualite; }
             set { qualite = value; }
         }
+        public int QualitePredite { get; set; }
+        public int QualiteInitiale { get; set; }
 
         // private Vignoble Vignoble { get; set; }
 
         public void Afficher()
         {
-            Console.WriteLine("Alcool: " + Alcool + "\nSulfate:" + Sulfate + "\nAcide citrique: " + Acide_citrique + "\nAcidité volatile: " + Acidite_volatile);
+            Console.WriteLine("Alcool: " + Alcool + "\nSulfate:" + Sulfate + "\nAcide citrique: " + Acide_citrique + "\nAcidité volatile: " + Acidite_volatile + "\nQualité prédite: " + QualitePredite + "\nQualité initiale: " + Qualite);
         }
+
 
         // Méthode pour obtenir la valeur d'un attribut par son nom
         public object GetAttributeValue(string attributeName)

@@ -9,13 +9,11 @@ namespace TP_qualité_du_vin
     internal class Performance
         
     {
-        public static double ValidationCroisee(List<Vin> donneesApprentissage, int folds)
+        public static double ValidationCroisee(List<Vin> donneesApprentissage, int folds, int maxDepth, int minSamplesSplit)
         {
-            // Mélanger aléatoirement les données
             Random rand = new Random();
             List<Vin> donneesMelangees = donneesApprentissage.OrderBy(x => rand.Next()).ToList();
 
-            // Diviser les données en 'folds' sous-ensembles
             List<List<Vin>> sousEnsembles = new List<List<Vin>>();
             int tailleSousEnsemble = donneesMelangees.Count / folds;
             for (int i = 0; i < folds; i++)
@@ -25,24 +23,19 @@ namespace TP_qualité_du_vin
                 sousEnsembles.Add(donneesMelangees.GetRange(debutIndex, finIndex - debutIndex));
             }
 
-            // Effectuer la validation croisée
             double sommePrecision = 0.0;
             foreach (var sousEnsemble in sousEnsembles)
             {
-                // Séparer le sous-ensemble actuel pour validation
                 List<Vin> donneesValidation = sousEnsemble;
                 List<Vin> donneesEntrainement = donneesMelangees.Except(donneesValidation).ToList();
 
-                // Créer et entraîner l'arbre de décision avec les données d'entraînement
                 Arbre_de_decision arbre = new Arbre_de_decision(new List<string> { "Alcool", "Sulfate", "Acide_citrique", "Acidite_volatile", "Qualite" });
-                arbre.ConstruireArbre(donneesEntrainement, new List<string> { "Alcool", "Sulfate", "Acide_citrique", "Acidite_volatile", "Qualite" });
+                arbre.ConstruireArbre(donneesEntrainement, new List<string> { "Alcool", "Sulfate", "Acide_citrique", "Acidite_volatile", "Qualite" }, maxDepth, minSamplesSplit);
 
-                // Évaluer l'arbre avec les données de validation
                 double precision = EvaluerModele(arbre, donneesValidation);
                 sommePrecision += precision;
             }
 
-            // Calculer la précision moyenne sur tous les plis
             double precisionMoyenne = sommePrecision / folds;
             return precisionMoyenne;
         }
@@ -64,6 +57,10 @@ namespace TP_qualité_du_vin
             return precision;
         }
 
+
+
+
+      
 
         /*
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TP_qualité_du_vin
 {
-    internal class Arbre_de_decision
+    public class Arbre_de_decision
     {
         private Noeud Racine { get; set; }
         private List<string> Attributs { get; set; }
@@ -20,46 +20,53 @@ namespace TP_qualité_du_vin
           
         }
 
-        public void ConstruireArbre(List<Vin> donnees, List<string> attributs)
+        public void ConstruireArbre(List<Vin> donnees, List<string> attributs, int maxDepth, int minSamplesSplit)
         {
-            Racine = ConstruireArbreRecursif(donnees, attributs);
+            Racine = ConstruireArbreRecursif(donnees, attributs, maxDepth, minSamplesSplit);
         }
 
-        private Noeud ConstruireArbreRecursif(List<Vin> donnees, List<string> attributs)
-        {
-            Noeud node = new Noeud();
+    private Noeud ConstruireArbreRecursif(List<Vin> donnees, List<string> attributs, int profondeurMax, int minSamplesSplit)
+{
+    Noeud node = new Noeud();
 
-            // Si toutes les instances ont la même classe, créer une feuille
-            if (donnees.Select(x => x.Qualite).Distinct().Count() == 1)
-            {
-                node.EstFeuille = true;
-                node.Classe = donnees[0].Qualite;
-                return node;
-            }
+    // Si toutes les instances ont la même classe ou la profondeur maximale est atteinte, créer une feuille
+    if (donnees.Select(x => x.Qualite).Distinct().Count() == 1 || profondeurMax == 0)
+    {
+        node.EstFeuille = true;
+        node.Classe = CalculerClasseMajoritaire(donnees);
+        return node;
+    }
 
-            // Calculer la classe majoritaire du nœud parent
-            node.ClasseMajoritaire = CalculerClasseMajoritaire(donnees);
+    // Vérifier si le nombre d'échantillons dans les données est inférieur à la valeur minimale requise pour la division
+    if (donnees.Count <= minSamplesSplit)
+    {
+        node.EstFeuille = true;
+        node.Classe = CalculerClasseMajoritaire(donnees);
+        return node;
+    }
 
-            // Sélectionner le meilleur attribut
-            int meilleurAttributIndex = SelectionnerMeilleurAttribut(donnees, attributs);
+    // Calculer la classe majoritaire du nœud parent
+    node.ClasseMajoritaire = CalculerClasseMajoritaire(donnees);
 
-            // Définir l'index de l'attribut pour le nœud actuel
-            node.AttributIndex = meilleurAttributIndex;
+    // Sélectionner le meilleur attribut
+    int meilleurAttributIndex = SelectionnerMeilleurAttribut(donnees, attributs);
 
-            // Partitionner les données basées sur l'attribut sélectionné
-            Dictionary<object, List<Vin>> donneesPartitionnees = PartitionnerDonnees(donnees, attributs[meilleurAttributIndex]);
+    // Définir l'index de l'attribut pour le nœud actuel
+    node.AttributIndex = meilleurAttributIndex;
 
-            // Construire récursivement les sous-arbres pour chaque partition
-            foreach (var kvp in donneesPartitionnees)
-            {
-                Noeud childNode = ConstruireArbreRecursif(kvp.Value, attributs.Except(new List<string> { attributs[meilleurAttributIndex] }).ToList());
-                childNode.ValeurAttribut = kvp.Key;
-                node.Enfants.Add(kvp.Key, childNode);
-            }
+    // Partitionner les données basées sur l'attribut sélectionné
+    Dictionary<object, List<Vin>> donneesPartitionnees = PartitionnerDonnees(donnees, attributs[meilleurAttributIndex]);
 
-            return node;
-        }
+    // Construire récursivement les sous-arbres pour chaque partition
+    foreach (var kvp in donneesPartitionnees)
+    {
+        Noeud childNode = ConstruireArbreRecursif(kvp.Value, attributs.Except(new List<string> { attributs[meilleurAttributIndex] }).ToList(), profondeurMax - 1, minSamplesSplit);
+        childNode.ValeurAttribut = kvp.Key;
+        node.Enfants.Add(kvp.Key, childNode);
+    }
 
+    return node;
+}
 
         private int CalculerClasseMajoritaire(List<Vin> donnees)
         {

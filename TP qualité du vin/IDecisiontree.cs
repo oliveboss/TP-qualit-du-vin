@@ -11,9 +11,9 @@ namespace TP_qualité_du_vin
     {
          
 
-        Node BuildTree(List<string[]> data, List<string> attributes);
+        Noeud BuildTree(List<string[]> data, List<string> attributes);
         string Classify(string[] instance);
-        string Classify(string[] instance, Node node);
+        string Classify(string[] instance, Noeud node);
         string GetBestAttribute(List<string[]> data, List<string> attributes, out double? splitValue);
         double CalculateInformationGainNumeric(List<string[]> data, int attributeIndex, out double? splitValue);
         double CalculateInformationGain(List<string[]> data, int attributeIndex);

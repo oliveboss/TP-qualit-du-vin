@@ -8,28 +8,27 @@ namespace TP_qualité_du_vin
 {
     internal class Qualité
     {
-        private int Quality { get; set; }
+       // private int Quality { get; set; }
 
-        public void Afficher()
+        public static void Afficher(int Quality)
         {
-            switch (Quality)
+            if (Quality >= 3 && Quality <= 4)
             {
-                case 3: // c'est juste un exemple
-                    Console.WriteLine("La qualité du vin est d'une qualité moyenne ou basse.");
-                    break;
-                case 6:
-                    Console.WriteLine("La qualité du vin est bonne.");
-                    break;
-                case 9:
-                    Console.WriteLine("La qualité du vin est excellente.");
-                    break;
-                default:
-                    Console.WriteLine("La qualité du vin n'est pas définie.");
-                    break;
+                Console.WriteLine("La qualité du vin est plus ou moins moyenne .");
             }
-
-
-
+            else if (Quality >= 5 && Quality <= 8)
+            {
+                Console.WriteLine("La qualité du vin est bonne.");
+            }
+            else if (Quality >= 9 && Quality <= 10)
+            {
+                Console.WriteLine("La qualité du vin est excellente.");
+            }
+            else
+            {
+                Console.WriteLine("La qualité du vin n'est pas définie.");
+            }
         }
+
     }
 }
