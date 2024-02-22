@@ -10,12 +10,14 @@ namespace TP_qualité_du_vin
     {
         private Noeud Racine { get; set; }
         private List<string> Attributs { get; set; }
-
+        // Propriété pour définir la profondeur maximale de l'arbre de décision
+    
 
         public Arbre_de_decision(List<string> attributs)
         {
             Racine = null;
             Attributs = attributs;
+          
         }
 
         public void ConstruireArbre(List<Vin> donnees, List<string> attributs)
