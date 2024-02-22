@@ -20,7 +20,7 @@ namespace TP_qualité_du_vin
             switch (Quality)
             {
                 case 3: 
-                    Console.WriteLine("La qualité du vin est d'une qualité moyenne ou basse.");
+                    Console.WriteLine("La qualité du vin est moyenne ou basse.");
                     break;
                 case 6:
                     Console.WriteLine("La qualité du vin est bonne.");
