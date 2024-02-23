@@ -119,37 +119,17 @@ namespace TP_qualité_du_vin
                         yield break;
                     }
 
-                    var keys = paramGrid.Keys.ToList();
-                    var firstKey = keys[0];
-                    var remainingKeys = keys.Skip(1).ToList();
-                    foreach (var value in paramGrid[firstKey])
-                    {
-                        foreach (var remainingParams in GenerateParamCombinations(paramGrid.Where(kvp => kvp.Key != firstKey).ToDictionary(kvp => kvp.Key, kvp => kvp.Value)))
-                        {
-                            var result = new Dictionary<string, object> { { firstKey, value } };
-                            foreach (var kvp in remainingParams)
-                            {
-                                result.Add(kvp.Key, kvp.Value);
-                            }
-                            yield return result;
-                        }
-                    }
-                }
-
-                public static double EvaluerModele(Arbre_de_decision arbre, List<Vin> donnees)
-                {
-                    int predictionsCorrectes = 0;
-                    foreach (var instance in donnees)
-                    {
-                        int prediction = arbre.Predire(instance);
-                        if (prediction == instance.Qualite)
-                        {
-                            predictionsCorrectes++;
-                        }
-                    }
-
-                    return (double)predictionsCorrectes / donnees.Count;
-                }*/
+        public float CalculPerformance()
+        {
+           if (vin == null|| qualité==null) 
+            {
+                return 0;
+            }
+            else
+            {
+                return 1; //notre formule à la place de 1
+            }
+        }
     }
 }
 
