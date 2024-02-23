@@ -26,6 +26,7 @@ namespace TP_qualité_du_vin
             double sommePrecision = 0.0;
             foreach (var sousEnsemble in sousEnsembles)
             {
+<<<<<<< HEAD
                 List<Vin> donneesValidation = sousEnsemble;
                 List<Vin> donneesEntrainement = donneesMelangees.Except(donneesValidation).ToList();
 
@@ -34,6 +35,9 @@ namespace TP_qualité_du_vin
 
                 double precision = EvaluerModele(arbre, donneesValidation);
                 sommePrecision += precision;
+=======
+                return 1; //chercher comment retourner la prédiction de la qualité
+>>>>>>> 8ad42724d91fade1e7ddbde20f66dd792ed3a735
             }
 
             double precisionMoyenne = sommePrecision / folds;

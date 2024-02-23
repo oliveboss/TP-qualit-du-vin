@@ -29,15 +29,30 @@ namespace TP_qualité_du_vin
             // Définir les attributs
             List<string> attributs = new List<string> { "Alcool", "Sulfate", "Acide_citrique", "Acidite_volatile", "Qualite" };
 
+<<<<<<< HEAD
             // Effectuer la recherche des meilleurs hyperparamètres
             int bestMaxDepth, bestMinSamplesSplit;
             Entrainement.RechercheHyperparametres(donneesEntrainement, attributs, out bestMaxDepth, out bestMinSamplesSplit);
+=======
+            // Appelez le constructeur de Arbre_de_decision avec la liste d'attributs
+            Arbre_de_decision arbre = new Arbre_de_decision(attributs);
+
+            // Chargez les données d'apprentissage
+            string cheminFichierApprentissage = @"C:\Users\Joel Kayemba\OneDrive\Documents\Données - Qualité du Vin(3)\train_reduced.csv";// @"C:\Users\amouz\OneDrive\Bureau\Donnes_D_Apprentissage.csv";
+            List<Vin> donneesApprentissage = DataLoader.ChargerDonneesApprentissage(cheminFichierApprentissage);
+>>>>>>> 8ad42724d91fade1e7ddbde20f66dd792ed3a735
 
             // Entraîner le modèle avec les meilleurs hyperparamètres
             Arbre_de_decision arbre =Entrainement.EntrainementModele(donneesEntrainement, attributs, bestMaxDepth, bestMinSamplesSplit);
 
+<<<<<<< HEAD
             // Évaluation finale sur l'ensemble de test
             double testSetPrecision =Entrainement.EvaluationFinale(arbre, donneesTest);
+=======
+            // Chargez les données de test
+            string cheminFichierTest = @"C:\Users\Joel Kayemba\OneDrive\Documents\Données - Qualité du Vin(3)\test_reduced.csv"; //@"C:\Users\amouz\OneDrive\Bureau\test_reduced.csv";
+            List<Vin> donneesTest = DataLoader.ChargerDonneesApprentissage(cheminFichierTest);
+>>>>>>> 8ad42724d91fade1e7ddbde20f66dd792ed3a735
 
             // Affichage de la précision sur l'ensemble de test
             Console.WriteLine("Précision sur l'ensemble de test : " + testSetPrecision);

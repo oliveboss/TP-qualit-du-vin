@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Csv, Version=2.0.93.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Csv.2.0.93\lib\net40\Csv.dll</HintPath>
+    </Reference>
     <Reference Include="CsvHelper, Version=31.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
       <HintPath>..\packages\CsvHelper.31.0.0\lib\net47\CsvHelper.dll</HintPath>
     </Reference>
@@ -74,8 +77,11 @@
     <Compile Include="Arbre_de_decision.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="DataLoader.cs" />
+<<<<<<< HEAD
     <Compile Include="Entrainement.cs" />
     <Compile Include="IDecisiontree.cs" />
+=======
+>>>>>>> 8ad42724d91fade1e7ddbde20f66dd792ed3a735
     <Compile Include="Noeud.cs" />
     <Compile Include="Oenologue.cs" />
     <Compile Include="Performance.cs" />

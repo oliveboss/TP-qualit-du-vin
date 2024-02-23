@@ -9,8 +9,14 @@ namespace TP_qualité_du_vin
 {
     internal class Terrain
     {
-        private float longueur;
-        private float largeur;
+        private float Longueur {  get; set; }
+        private float Largeur { get; set; }
+
+        public Terrain(float longueur, float largeur)
+        {
+            Longueur = longueur;
+            Largeur = largeur;
+        }
 
         public float Surface(float longueur, float largeur)
         {
@@ -19,7 +25,7 @@ namespace TP_qualité_du_vin
 
         public void Afficher()
         {
-            Console.WriteLine("Le terrain a une longueur de " + longueur + "et une largeur de " + largeur);
+            Console.WriteLine("Le terrain a une surface de "+ Longueur * Largeur + " mettre carré");
         }
 
         
