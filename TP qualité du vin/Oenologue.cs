@@ -12,7 +12,7 @@ namespace TP_qualité_du_vin
          
         public override void Afficher()
         {
-            Console.WriteLine("Nom: " + Nom + "\nPrenom: " + Prenom + "\nAge: " + Age );
+            Console.WriteLine("Nom: " + Nom + "\nPrenom: " + Prenom + "\nAge: " + Age);
            
 
         }
